@@ -1,0 +1,68 @@
+name: nextstep
+description: "A new Flutter project."
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  appinio_swiper: ^2.1.1
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logo.jpg
+    - assets/x456.jpeg
+    - assets/squid.jpeg
+    - assets/peopleonphone.jpg
+    - assets/meditation.jpg
+    - assets/matrix.jpg
+    - assets/fingeronscreen.jpg
+    - assets/dice.jpg
+    - assets/boxes.jpeg
+    - assets/participant.jpeg
+    - assets/homescreen.jpg
+    - assets/challenge1.jpg
+    - assets/2hearts.jpg
+    - assets/eliminated.jpg
+    - assets/bg1.jpg
+    - assets/sademoji.png
+    - assets/happyemoji.png
+    - assets/onboarding.png
+    - assets/davincicode.jpg
+    - assets/dice.jpg
+    - assets/professor.jpg
+    - assets/chess.jpg
+    - assets/kit.jpg
+    - assets/davinci.jpg
+    - assets/board.jpg
+    - assets/pinterest.jpg
+    - assets/pinterest1.jpg
+    - assets/pinterest2.jpg
+    - assets/pinterest3.jpg
+    - assets/pinterest4.jpg
+    - assets/pinterest5.jpg
+    - assets/pinterest6.jpg
+    - assets/pinterest7.jpg
+    - assets/pinterest8.jpg
+    - assets/pinterest9.jpg
+
+
+
+
+  # Optional: Add custom fonts like SF Pro
+  # fonts:
+  #   - family: SF Pro
+  #     fonts:
+  #       - asset: assets/fonts/SF-Pro.ttf

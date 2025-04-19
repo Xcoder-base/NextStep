@@ -33,29 +33,39 @@ class OnboardingScreen extends StatelessWidget {
       'assets/kit.jpg',
       'assets/davinci.jpg',
       'assets/board.jpg',
+      'assets/meditation.jpg',
+      'assets/matrix.jpg',
+      'assets/fingeronscreen.jpg',
+      'assets/dice.jpg',
+      'assets/boxes.jpeg',
     ];
 
     final List<Alignment> imagePositions = [
-      const Alignment(-0.8, -0.4),
-      const Alignment(0.7, -0.5),
-      const Alignment(-0.6, -0.2),
-      const Alignment(0.5, -0.1),
-      const Alignment(-0.4, 0.0),
-      const Alignment(0.3, 0.1),
-      const Alignment(0.0, -0.3),
+      const Alignment(-0.9, -0.5),  // Top-left
+      const Alignment(0.8, -0.6),   // Top-right
+      const Alignment(-0.7, -0.3),  // Mid-left
+      const Alignment(0.6, -0.2),   // Mid-right
+      const Alignment(-0.5, 0.0),   // Center-left
+      const Alignment(0.4, 0.1),    // Center-right
+      const Alignment(0.0, -0.4),   // Top-center
+      const Alignment(-0.3, 0.3),   // Bottom-left
+      const Alignment(0.2, -0.1),   // Upper-mid-right
+      const Alignment(-0.1, 0.4),   // Bottom-mid-left
+      const Alignment(0.3, 0.5),    // Bottom-right
+      const Alignment(0.1, -0.2),   // Upper-mid-center
     ];
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Floating images above title
+          // Floating images in top half
           for (int i = 0; i < assetImages.length; i++)
             Align(
               alignment: imagePositions[i],
               child: Container(
-                width: 70, // Uniform small size
-                height: 70,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   boxShadow: [
@@ -76,38 +86,42 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ),
 
-          // Main content column
+          // Content column
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Spacer(flex: 2), // Push content down
+                const Spacer(flex: 2),
                 
-                // Title and content
+                // Title
                 const Text(
                   "NextStep",
                   style: TextStyle(
-                    fontSize: 32, // Slightly larger for hierarchy
+                    fontSize: 24,
                     fontWeight: FontWeight.w800,
                     height: 1,
                     letterSpacing: -1,
                     color: Colors.black,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
+                
+                // Subtitle
                 const Text(
-                  "Prove your genius.Get rewarded.",
+                  "Beat the Challenge. Get Rewarded.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 16, // Slightly larger for readability
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                     height: 1.4,
                     color: Colors.black87,
                   ),
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 24),
+                
+                // Join button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -115,7 +129,7 @@ class OnboardingScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -124,62 +138,51 @@ class OnboardingScreen extends StatelessWidget {
                     child: const Text(
                       "Join Now",
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.5,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
-                Column(
-                  children: [
-                    const Text(
-                      "65,897/100,000 participants Joined",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      "Challenges will start on 5th May, 2025",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 12),
+                
+                // Participants count
+                const Text(
+                  "65,897/100,000 participants Joined",
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 10,
+                  ),
                 ),
-                const SizedBox(height: 40), // Bottom padding
+                const SizedBox(height: 40),
               ],
             ),
           ),
 
-          // Black pill-shaped login button
+          // Login button
           Positioned(
             top: MediaQuery.of(context).padding.top + 16,
             right: 24,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(50), // Pill shape
+                borderRadius: BorderRadius.circular(50),
               ),
               child: TextButton(
                 onPressed: () => _showLoginBottomSheet(context),
                 style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50), // Pill shape
+                    borderRadius: BorderRadius.circular(50),
                   ),
                 ),
                 child: const Text(
                   'Login',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 12,
+                    fontSize: 10,
                     color: Colors.white,
                   ),
                 ),

@@ -1,8 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'login_bottom_sheet.dart';
-import 'app_styles.dart';
-import 'home_screen.dart'; // We'll create this next
+import 'home_screen.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   static const List<String> imageAssets = [
@@ -36,9 +35,9 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
       backgroundColor: Colors.grey.shade100,
       body: Stack(
         children: [
-          // Floating decorative images (same as onboarding)
+          // Floating decorative images
           ...AuthenticationScreen.imageAssets.map((asset) {
-            final size = random.nextDouble() * 60 + 40;
+            final size = random.nextDouble() * 50 + 40;
             final isBlurry = random.nextBool();
             final angle = (random.nextBool() ? -1 : 1) * random.nextDouble() * 0.3;
             final opacity = isBlurry ? random.nextDouble() * 0.4 + 0.1 : 1.0;
@@ -54,17 +53,17 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                     width: size,
                     height: size,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 10,
-                          spreadRadius: 2,
+                          color: Colors.black.withOpacity(0.08),
+                          blurRadius: 8,
+                          spreadRadius: 1,
                         ),
                       ],
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
                         asset,
                         fit: BoxFit.cover,
@@ -77,20 +76,20 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
             );
           }).toList(),
 
-          // Main content at bottom quarter
+          // Main content
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: screenHeight * 0.45,
-              padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
+              height: screenHeight * 0.5,
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
-                    blurRadius: 20,
-                    spreadRadius: 5,
+                    blurRadius: 16,
+                    spreadRadius: 4,
                   ),
                 ],
               ),
@@ -106,13 +105,13 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           Text(
                             'Sign Up',
                             style: TextStyle(
-                              fontSize: 22,
+                              fontSize: 20,
                               fontWeight: FontWeight.w800,
                               color: Colors.grey.shade800,
                             ),
                           ),
                           IconButton(
-                            icon: Icon(Icons.close, size: 22, color: Colors.grey.shade600),
+                            icon: Icon(Icons.close, size: 20, color: Colors.grey.shade600),
                             onPressed: () => Navigator.pop(context),
                           ),
                         ],
@@ -121,16 +120,16 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                       TextFormField(
                         decoration: InputDecoration(
                           hintText: 'Email',
-                          prefixIcon: Icon(Icons.email_outlined, size: 20),
+                          prefixIcon: Icon(Icons.email_outlined, size: 18),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
                           fillColor: Colors.grey.shade100,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 14),
+                          contentPadding: const EdgeInsets.symmetric(vertical: 12),
                         ),
-                        style: TextStyle(fontSize: 14),
+                        style: const TextStyle(fontSize: 12),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter email';
@@ -143,13 +142,13 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                         obscureText: _obscurePassword,
                         decoration: InputDecoration(
                           hintText: 'Password',
-                          prefixIcon: Icon(Icons.lock_outlined, size: 20),
+                          prefixIcon: Icon(Icons.lock_outlined, size: 18),
                           suffixIcon: IconButton(
                             icon: Icon(
                               _obscurePassword
                                   ? Icons.visibility_outlined
                                   : Icons.visibility_off_outlined,
-                              size: 20,
+                              size: 18,
                             ),
                             onPressed: () {
                               setState(() {
@@ -158,14 +157,14 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                             },
                           ),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
                           fillColor: Colors.grey.shade100,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 14),
+                          contentPadding: const EdgeInsets.symmetric(vertical: 12),
                         ),
-                        style: TextStyle(fontSize: 14),
+                        style: const TextStyle(fontSize: 12),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter password';
@@ -191,14 +190,14 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           child: const Text(
                             'Continue',
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                           ),
                         ),
                       ),
@@ -215,7 +214,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                         child: Text(
                           'Already have an account? Log in',
                           style: TextStyle(
-                            fontSize: 13,
+                            fontSize: 11,
                             color: Colors.grey.shade600,
                           ),
                         ),

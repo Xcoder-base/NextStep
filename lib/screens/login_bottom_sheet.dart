@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import 'app_styles.dart';
 
 class LoginBottomSheet extends StatefulWidget {
   const LoginBottomSheet({super.key});
@@ -16,7 +15,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
+      padding: const EdgeInsets.fromLTRB(24, 16, 24, 28),
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
@@ -26,9 +25,9 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
         children: [
           // Drag handle
           Container(
-            width: 48,
+            width: 40,
             height: 4,
-            margin: const EdgeInsets.only(bottom: 16),
+            margin: const EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(2),
@@ -44,7 +43,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                 Text(
                   'Welcome back',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: Colors.grey.shade800,
                   ),
@@ -53,14 +52,14 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                 Text(
                   'Continue your \$1000 challenge',
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 11,
                     color: Colors.grey.shade600,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 24),
 
           // Form
           Form(
@@ -70,16 +69,16 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: 'Email',
-                    prefixIcon: Icon(Icons.email_outlined, size: 20, color: Colors.grey.shade500),
+                    prefixIcon: Icon(Icons.email_outlined, size: 18, color: Colors.grey.shade500),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
                     fillColor: Colors.grey.shade100,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 12),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter email';
@@ -92,13 +91,13 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    prefixIcon: Icon(Icons.lock_outlined, size: 20, color: Colors.grey.shade500),
+                    prefixIcon: Icon(Icons.lock_outlined, size: 18, color: Colors.grey.shade500),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscurePassword 
                             ? Icons.visibility_outlined 
                             : Icons.visibility_off_outlined,
-                        size: 20,
+                        size: 18,
                         color: Colors.grey.shade500,
                       ),
                       onPressed: () {
@@ -108,14 +107,14 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                       },
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
                     fillColor: Colors.grey.shade100,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 12),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter password';
@@ -129,7 +128,6 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        // Login logic
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -139,15 +137,15 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     child: const Text(
                       'Continue',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -161,7 +159,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                   child: Text(
                     'New to NextStep? Sign up',
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 11,
                       color: Colors.grey.shade600,
                     ),
                   ),
